@@ -1,14 +1,16 @@
 ### Date created
-Info here.
+08/27/2019
 
 ### Project Title
-Replace the Project Title
+Bike Share
 
 ### Description
-Describe what your project is about and what it does
+This project reads bike share data and provides general analytics. I didn't have a lot of time to work on it so it is very barebones.
 
 ### Files used
-Include the files used
+bikeshare.py
+.gitignore
 
 ### Credits
 It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+udacity.com
