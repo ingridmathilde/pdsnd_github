@@ -20,8 +20,8 @@ MONTHS = {'january' : 0,
                'october' : 9,
                'november' : 10,
                'december' : 11}
-   
-#dictionary outlining day of week with appropriate integer.    
+
+#dictionary outlining day of week with appropriate integer.
 DAYS = {'monday' : 0,
              'tuesday' : 1,
              'wednesday' : 2,
@@ -42,7 +42,7 @@ def get_filters():
     print('Hello! Let\'s explore some US bikeshare data!\n')
     print('We will need to know three things:\n')
     print('1. The city that you are interested in knowing about;\n')
-    print('2. The month to filter the data; and,\n')
+    print('2. The month to filter the data;\n')
     print('3. The day of the week.\n')
     print('\n If at any point, you wish to quit, simply enter "q".\n')
 
@@ -97,15 +97,15 @@ def load_data(city, month, day):
     df['Birth Year'] = pd.to_numeric(df['Birth Year'], downcast = 'integer')
     df['start_month'] = df['Start Time'].dt.month
     df['start_day'] = df['Start Time'].dt.dayofweek
-    
+
     #Applies month filter.
     if month != 'all':
         df = df[df['start_month'] == MONTHS[month]]
-    
+
     #Applies day of week filter
     if day != 'all':
         df = df[df['start_day'] == DAYS[day]]
-        
+
     return df
 
 
@@ -140,13 +140,13 @@ def station_stats(df):
     # TO DO: display most commonly used start station
     #Calculates start station with greatest value_count()
     print("\nThe most commonly used start station is %s." % (df['Start Station'].value_counts().idxmax()))
-    
+
     # TO DO: display most commonly used end station
     #Calculates end station with greatest value_count()
     print("\nThe most commonly used end station is %s." % (df['End Station'].value_counts().idxmax()))
-    
+
     # TO DO: display most frequent combination of start station and end station trip
-    #Calculates start and end station combination that occurs most in dataframe   
+    #Calculates start and end station combination that occurs most in dataframe
     print("\nThe most commonly used start and end station combination is %s." % (df[['Start Station','End Station']].mode().loc[0]))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -184,7 +184,7 @@ def user_stats(df):
     # TO DO: Display counts of gender
     #Calculates value_counts() of gender in dataframe
     print("\nThe count of each gender is %s \n " % (df['Gender'].value_counts()))
-    
+
     # TO DO: Display earliest, most recent, and most common year of birth
     #Calculates min(), max(), and most common (greatest value_counts()) of birth year in dataframe as integers.
     print("\nThe earliest birth year is %s.\nThe most recent birth year is %s.\nThe most common birth year is %s.\n" % (df['Birth Year'].min().astype(int), df['Birth Year'].max().astype(int), df['Birth Year'].value_counts().idxmax().astype(int)))
@@ -193,13 +193,13 @@ def user_stats(df):
     print('-'*40)
 
 def display_data(df):
-    
+
     start_time = time.time()
-    
+
     #Counts the number of rows in the datafram
     row_count = len(df.index)
     row_index = 0
-    
+
     #Asks the user if they would like to see more data.
     while True and row_index<row_count:
         see_more = input("Would you like to see the raw data? Type yes for 5 more rows, or no to stop.\n")
@@ -208,7 +208,7 @@ def display_data(df):
             row_index += 5
         else:
             break
-     
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -223,7 +223,7 @@ def main():
         user_stats(df)
 
         display_data(df)
-        
+
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
